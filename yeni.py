@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
 
 class DosemeHesaplamaApp:
@@ -78,6 +78,7 @@ class DosemeHesaplamaApp:
 
         except ValueError as e:
             print("Hata:", e)
+            messagebox.showerror(title="Hata", message = "Lütfen geçerli bir değer giriniz")
             self.UzunKenar_entry.delete(0,tk.END)
             self.KisaKenar_entry.delete(0,tk.END)
 
