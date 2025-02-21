@@ -105,13 +105,17 @@ class DosemeHesaplamaApp:
 
             if secilen_deger == "BİR KENAR SÜREKSİZ":
                 self.kenar_tipi_2.grid(row=7, column=2)
-                sonuc = ((uzun * 2 + kisa) / (2 * (uzun + kisa))) if self.kenar_tipi_2.get() == "KISA KENAR SÜREKSİZ" else \
-                        ((uzun + kisa * 2) / (2 * (uzun + kisa)))
+                if self.kenar_tipi_2.get() == "KISA KENAR SÜREKSİZ":
+                    sonuc=((uzun * 2 + kisa) / (2 * (uzun + kisa)))
+                else:
+                    sonuc=((uzun + kisa * 2) / (2 * (uzun + kisa)))
 
             elif secilen_deger == "ÜÇ KENAR SÜREKSİZ":
                 self.kenar_tipi_3.grid(row=7, column=2)
-                sonuc = (kisa / (2 * (uzun + kisa))) if self.kenar_tipi_3.get() == "KISA KENAR SÜREKLİ" else \
-                        (uzun / (2 * (uzun + kisa)))
+                if self.kenar_tipi_3 == "KISA KENAR SÜREKLİ":
+                    sonuc = (kisa / (2 * (uzun + kisa)))
+                else:
+                    sonuc = (uzun / (2 * (uzun + kisa)))
 
             if sonuc is not None:
                 self.AlfaS_entry.insert(0, str(round(sonuc, 3)))
